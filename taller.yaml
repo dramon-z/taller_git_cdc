@@ -1,0 +1,109 @@
+swagger: "2.0"
+info:
+  description: "descripcion"
+  version: "0.0.1"
+  title: "Taller"
+  termsOfService: "http://swagger.io/terms/"
+  contact:
+    email: "demo@demo.com"
+  license:
+    name: "Apache 2.0"
+    url: "http://www.apache.org/licenses/LICENSE-2.0.html"
+host: "localhost:8080"
+basePath: "/"
+tags:
+- name: "taller"
+  description: "Demo swagger"
+schemes:
+- "http"
+paths:
+  /test:
+    post:
+      tags:
+      - "demo"
+      summary: "solicitud"
+      description: ""
+      operationId: "get success"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "Datos generales"
+        required: true
+        schema:
+          $ref: "#/definitions/DatosGenerales"
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: "#/definitions/Respuesta"
+          examples:
+            response:
+              success: true
+        204:
+          description: "NOT CONTENT"
+        
+        400:
+          description: BAD REQUEST
+          schema:
+            $ref: '#/definitions/Errores'
+          examples:
+            response:
+              errors:
+                - code: 400
+                  message: Datos de consulta incorrecto.
+definitions:
+  Errores:
+    type: object
+    description: 'Si existen errores, se listarán.'
+    properties:
+      errors:
+        type: array
+        items:
+          $ref: '#/definitions/Error'
+    title: Errores
+
+  Error:
+    type: object
+    properties:
+      code:
+        type: string
+        example: 404
+        description: Código de error.
+      message:
+        type: string
+        example: Título de error, El campo "campo" es requerido.
+        description: Mensaje de error.
+    title: Error
+    description: error
+    
+  Respuesta:
+    type: object
+    properties:
+      success:
+        type: boolean
+        description: Solicitud exitosa
+  
+   
+  DatosGenerales:
+    type: "object"
+    required:
+    - "nombre"
+    - "apellidoPaterno"
+    properties:
+      nombre:
+        type: "string"
+        example: "Daniel"
+      apellidoPaterno:
+        type: "string"
+        example: Ramon
+      apellidoMaterno:
+        type: "string"
+        example: Zapata
+    example:
+      nombre: Pedro
+      apellidoPaterno: Juarez
+      
