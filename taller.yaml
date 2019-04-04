@@ -23,7 +23,7 @@ paths:
       - "demo"
       summary: "solicitud"
       description: ""
-      operationId: "get success"
+      operationId: "post success"
       consumes:
       - "application/json"
       produces:
