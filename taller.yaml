@@ -55,6 +55,120 @@ paths:
               errors:
                 - code: 400
                   message: Datos de consulta incorrecto.
+
+
+    get:
+      tags:
+      - "demo"
+      summary: "solicitud"
+      description: ""
+      operationId: "get success"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "Petición Get"
+        required: true
+        schema:
+          $ref: "#/definitions/DatosGenerales"
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: "#/definitions/Respuesta"
+          examples:
+            response:
+              success: true
+        204:
+          description: "NOT CONTENT"
+        400:
+          description: FAIL ERROR404
+          schema:
+            $ref: '#/definitions/Errores'
+          examples:
+            response:
+              errors:
+                - code: 400
+                  message: No hubo ni mais
+
+
+    put:
+      tags:
+      - "demo"
+      summary: "solicitud"
+      description: ""
+      operationId: "put success"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "Petición PUT"
+        required: true
+        schema:
+          $ref: "#/definitions/DatosGenerales"
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: "#/definitions/Respuesta"
+          examples:
+            response:
+              success: true
+        204:
+          description: "NOT CONTENT"
+        400:
+          description: FAIL ERROR404
+          schema:
+            $ref: '#/definitions/Errores'
+          examples:
+            response:
+              errors:
+                - code: 400
+                  message: NEL / NADA
+
+    patch:
+      tags:
+      - "demo"
+      summary: "solicitud"
+      description: ""
+      operationId: "patch success"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "Petición PATCH"
+        required: true
+        schema:
+          $ref: "#/definitions/DatosGenerales"
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: "#/definitions/Respuesta"
+          examples:
+            response:
+              success: true
+        204:
+          description: "NOT CONTENT"
+        400:
+          description: FAIL ERROR404
+          schema:
+            $ref: '#/definitions/Errores'
+          examples:
+            response:
+              errors:
+                - code: 400
+                  message: No PATCH para ti >:(
+
 definitions:
   Errores:
     type: object
