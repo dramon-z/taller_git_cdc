@@ -1,0 +1,47 @@
+
+https://www.gitkraken.com/download
+https://github.com/dramon-z/taller_git_cdc
+
+
+
+“Swagger es una serie de reglas, especificaciones y herramientas que nos ayudan a documentar nuestras APIs.”
+
+
+
+“Utilizando el Swagger UI para exponer la documentación de nuestra API, podemos ahorrarnos mucho tiempo.”
+
+
+//EJERCICIO
+taller.yaml
+-crear un path con cada verbo (GET,POST,PUT,DELETE)
+-crear un request modelo
+-crear un response modelo
+-en el mismo archivo
+
+
+
+
+https://swagger.io/
+https://editor.swagger.io/
+https://swagger.io/docs/
+https://swagger.io/docs/specification/2-0/basic-structure/
+
+
+
+Git es un software de control de versiones.
+https://git-scm.com/
+
+
+Gitflow
+https://danielkummer.github.io/git-flow-cheatsheet/index.es_ES.html
+
+Versionado Semámtico
+https://foro.circuloapps.com/discussion/23/versionado-semantico#latest
+
+
+//EJERCICIO VERSIONAR TODO 
+taller.yaml
+-crear un path
+-crear un request modelo
+-crear un response modelo
+-en el mismo archivo
