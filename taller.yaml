@@ -207,6 +207,43 @@ paths:
               errors:
                 - code: 400
                   message: Datos de consulta incorrecto.
+  /testNava:
+    post:
+      tags:
+      - "demo"
+      summary: "solicitud"
+      description: ""
+      operationId: "post success"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "Datos generales"
+        required: true
+        schema:
+          $ref: "#/definitions/DatosGeneralesNava"
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: "#/definitions/RespuestaNava"
+          examples:
+            response:
+              success: true
+        204:
+          description: "NOT CONTENT"
+        400:
+          description: BAD REQUEST
+          schema:
+            $ref: '#/definitions/Errores'
+          examples:
+            response:
+              errors:
+                - code: 400
+                  message: Datos de consulta incorrecto.
 definitions:
   Errores:
     type: object
@@ -250,6 +287,13 @@ definitions:
       message:
         type: boolean
         description: La persona se actualizo correctamente
+
+  RespuestaNava:
+    type: object
+    properties:
+      success:
+        type: boolean
+        description: Solicitud exitosa
   
   RespuestaDelete:
     type: object
@@ -280,4 +324,21 @@ definitions:
     example:
       nombre: Pedro
       apellidoPaterno: Juarez
+
+
+  DatosGeneralesNava:
+    type: "object"
+    required:
+    - "usuario"
+    - "contraseña"
+    properties:
+      usuario:
+        type: "string"
+        example: "Daniel"
+      contraseña:
+        type: "string"
+        example: Ramon
+    example:
+      nombre: Manava
+      contraseña: 1234
       
