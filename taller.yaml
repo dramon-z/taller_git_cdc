@@ -55,6 +55,45 @@ paths:
               errors:
                 - code: 400
                   message: Datos de consulta incorrecto.
+  /test2:
+    get:
+      tags:
+      - "demo"
+      summary: "solicitud"
+      description: ""
+      operationId: "post success"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "Datos generales"
+        required: true
+        schema:
+          $ref: "#/definitions/DatosGenerales"
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: "#/definitions/Respuesta"
+          examples:
+            response:
+              success: true
+        204:
+          description: "NOT CONTENT"
+        
+        400:
+          description: BAD REQUEST
+          schema:
+            $ref: '#/definitions/Errores'
+          examples:
+            response:
+              errors:
+                - code: 400
+                  message: Datos de consulta incorrecto.
+
 definitions:
   Errores:
     type: object
