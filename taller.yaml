@@ -17,8 +17,160 @@ tags:
 schemes:
 - "http"
 paths:
-  /test:
+  /test/{testId}:
     post:
+      tags:
+      - "demo"
+      summary: "solicitud"
+      description: ""
+      operationId: "post success"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: path
+        name: testId
+        required: true
+        type: integer
+        minimum: 1
+        description: The ID of the user to return.
+      - in: "body"
+        name: "body"
+        description: "Datos generales"
+        required: true
+        schema:
+          $ref: "#/definitions/DatosGenerales"
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: "#/definitions/Respuesta"
+          examples:
+            response:
+              success: true
+        204:
+          description: "NOT CONTENT"
+        
+        400:
+          description: BAD REQUEST
+          schema:
+            $ref: '#/definitions/Errores'
+          examples:
+            response:
+              errors:
+                - code: 400
+                  message: Datos de consulta incorrecto.
+    put: 
+      tags:
+      - "demo"
+      summary: Returns a list of users.
+      description: Optional extended description in Markdown.
+      produces:
+        - application/json
+      parameters:
+      - in: path
+        name: testId
+        required: true
+        type: integer
+        minimum: 1
+        description: The ID of the user to return.
+      - in: "body"
+        name: "body"
+        description: "Datos generales"
+        required: true
+        schema:
+          $ref: "#/definitions/DatosGenerales"
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: "#/definitions/RespuestaPut"
+          examples:
+            response:
+              success: true
+        204:
+          description: "NOT CONTENT"
+        
+        400:
+          description: BAD REQUEST
+          schema:
+            $ref: '#/definitions/Errores'
+          examples:
+            response:
+              errors:
+                - code: 400
+                  message: Datos de consulta incorrecto.
+    delete: 
+      tags:
+      - "demo"
+      summary: Returns a list of users.
+      description: Optional extended description in Markdown.
+      produces:
+        - application/json
+      parameters:
+      - in: path
+        name: testId
+        required: true
+        type: integer
+        minimum: 1
+        description: The ID of the user to return.
+      - in: "body"
+        name: "body"
+        description: "Datos generales"
+        required: true
+        schema:
+          $ref: "#/definitions/DatosGenerales"
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: "#/definitions/RespuestaDelete"
+          examples:
+            response:
+              success: true
+        204:
+          description: "NOT CONTENT"
+        
+        400:
+          description: BAD REQUEST
+          schema:
+            $ref: '#/definitions/Errores'
+          examples:
+            response:
+              errors:
+                - code: 400
+                  message: Datos de consulta incorrecto.
+  /test:
+    get: 
+      tags:
+      - "demo"
+      summary: Returns a list of users.
+      description: Optional extended description in Markdown.
+      produces:
+        - application/json
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: "#/definitions/Respuesta"
+          examples:
+            response:
+              success: true
+        204:
+          description: "NOT CONTENT"
+        
+        400:
+          description: BAD REQUEST
+          schema:
+            $ref: '#/definitions/Errores'
+          examples:
+            response:
+              errors:
+                - code: 400
+                  message: Datos de consulta incorrecto.
+  /test2:
+    get:
       tags:
       - "demo"
       summary: "solicitud"
@@ -79,13 +231,35 @@ definitions:
         description: Mensaje de error.
     title: Error
     description: error
-    
+  
   Respuesta:
     type: object
     properties:
       success:
         type: boolean
         description: Solicitud exitosa
+      message:
+        type: boolean
+        description: La persona se agregó correctamente
+  RespuestaPut:
+    type: object
+    properties:
+      success:
+        type: boolean
+        description: Solicitud exitosa
+      message:
+        type: boolean
+        description: La persona se actualizo correctamente
+  
+  RespuestaDelete:
+    type: object
+    properties:
+      success:
+        type: boolean
+        description: Solicitud exitosa
+      message:
+        type: boolean
+        description: La persona se borró correctamente
   
    
   DatosGenerales:
